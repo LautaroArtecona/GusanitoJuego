@@ -43,6 +43,25 @@
             margin-top: 20px;
             font-size: 14px;
             color: #bdc3c7;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos para el nuevo botón */
+        #btn-reiniciar {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        #btn-reiniciar:hover {
+            background-color: #c0392b;
         }
     </style>
 </head>
@@ -56,6 +75,8 @@
     </div>
 
     <div class="instrucciones">Usa las flechas del teclado (⬅️ ⬆️ ⬇️ ➡️) para moverte.</div>
+    
+    <button id="btn-reiniciar" onclick="location.reload()">Reiniciar Juego</button>
 
     <script>
         const canvas = document.getElementById("gameCanvas");
@@ -158,7 +179,8 @@
             // Game Over (Si choca contra las paredes o consigo mismo)
             if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
                 clearInterval(game);
-                setTimeout(() => alert("¡Juego Terminado! Tu puntuación final fue de: " + score + ". Recarga la página para volver a intentar."), 100);
+                // Mensaje actualizado
+                setTimeout(() => alert("¡Juego Terminado! Tu puntuación final fue de: " + score + ". Presiona el botón para reiniciar."), 100);
             }
 
             // Añadir la nueva cabeza al array del gusano
